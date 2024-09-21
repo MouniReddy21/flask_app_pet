@@ -1,0 +1,34 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f9fc; /* Light background color */
+    margin: 0;
+    padding: 40px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #333; /* Darker text color */
+    margin-bottom: 20px;
+}
+
+a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007BFF; /* Button color */
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 10px;
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+a:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #555; /* Lighter text for footer */
+}

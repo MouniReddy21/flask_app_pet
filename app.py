@@ -1,14 +1,12 @@
 from flask import Flask, render_template, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy  # this is a tool to interact with the database instance
+from models import db, Pet
 from forms import PetForm
 
 app = Flask(__name__)  #create instance of flask class, __name__tells where to look for resources.
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///pets.db' #specifying the database file pets.db
 app.config['SECRET_KEY'] = 'your_secret_key' #configuration of secret key for session management
-db = SQLAlchemy(app) #creating SQLAlchemy instance that allows interation with database
-
-# Import models after db is created to avoid circular imports
-from models import Pet  #this defines database schema for pets
+db.init_app(app) # connects the database instance to the flask application
 
 @app.route('/')  # Route for the home page, renders home.html
 def home():
@@ -30,5 +28,6 @@ def pet_list():
     return render_template('pet_list.html', pets=pets) # renders the pet_list by passing the pets
 
 if __name__ == '__main__':
-    db.create_all()
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)

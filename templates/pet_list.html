@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='pet_list.css') }}">
+</head>
+<body>
+    <h1>Our Pet List</h1>
+    <ul>
+        {% for pet in pets %}
+            <li>{{ pet.name }} ({{ pet.species }})</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>
