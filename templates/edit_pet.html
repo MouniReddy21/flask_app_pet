@@ -3,14 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add a Pet</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='add_pet.css') }}">
+    <title>Edit Pet</title>
 </head>
 
 <body>
-    <h1>Add a New Pet</h1>
-    <form method="POST">
+    <h1>Edit Pet</h1>
+    <form method="POST" action="">
         {{ form.hidden_tag() }}
         <p>
             {{ form.name.label }}<br>
@@ -19,6 +17,7 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
+
         <p>
             {{ form.species.label }}<br>
             {{ form.species(size=32) }}<br>
@@ -26,9 +25,9 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
-        <p>{{ form.submit() }}</p>
+        {{ form.submit() }}
     </form>
-    <a href="{{ url_for('home') }}">Back to Home</a>
+    <a href="{{ url_for('pet_list') }}">Back to Pet List</a>
 </body>
 
 </html>
